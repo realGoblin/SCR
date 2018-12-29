@@ -11,14 +11,13 @@ import  javax.swing.*;
 public  class   menuStudent{
     JFrameStudent  menuStud   =   new    JFrameStudent();
     ArrayList<ratings> rat;
-    List<ratings> result;
-    JFrameStudent.JCombo  listDiscp;
+    List<ratings> result;    
     public static   void    go(String   i){
         menuStudent ff  =   new menuStudent();
         ff.start(i);
     }
     public  void    start(String   idStudent){
-        JFrameStudent.JCombo   listDiscp    =   new JFrameStudent.JCombo();
+        //JFrameStudent.JCombo   listDiscp    =   new JFrameStudent.JCombo();
         downloadRat();
         
         result = rat.stream()

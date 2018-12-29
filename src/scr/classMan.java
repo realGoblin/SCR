@@ -11,9 +11,7 @@ import java.util.ArrayList;
  * @author Goblin
  */
 class    classMan   implements  Serializable{
-    String  name;
-    String  surname;
-    String  patronymic;
+    String  FIO;
     String  ID;
     String  position;
     String  password;
@@ -21,9 +19,7 @@ class    classMan   implements  Serializable{
 }
 class   admin  extends classMan{
     admin(){
-    name    =   "";
-    surname =   "";
-    patronymic  =   "";
+    FIO    =   "";
     ID  =   "ADMIN";
     position    =   "ADMIN";
     password    =   "ADMIN";
@@ -32,17 +28,18 @@ class   admin  extends classMan{
 class   lecturer    extends classMan{
     ArrayList<String>    listGroups;
     ArrayList<String>    listDiscp;
+//    String  listGroups;
+//    String  listDiscp;
     public  lecturer(){
         
     }
-    public  lecturer    (String  myName,   String  mySurname,    String  myPatronymic,    
-            String  IDi,    String  pass){
-        name    =   myName;
-        surname =   mySurname;
-        patronymic  =   myPatronymic;
+    public  lecturer    (String  myName, String  IDi,    String  pass,ArrayList<String>    listGroup,ArrayList<String>    listDisc){
+        FIO    =   myName;
         ID  =   IDi;
         position    =   "lecturer";
         password    =   pass;
+        listGroups =   listGroup;        
+        listDiscp =   listDisc;
     }
 }
 class   student extends classMan{
@@ -50,11 +47,8 @@ class   student extends classMan{
     //ArrayList<ratings>  rat;
     public  student(){
     }
-    public  student(String  myName,   String  mySurname,    String  myPatronymic,    
-            String  IDi,    String  pass,   String   groupMy){        
-        name    =   myName;
-        surname =   mySurname;
-        patronymic  =   myPatronymic;
+    public  student(String  myName, String  IDi,    String  pass,   String   groupMy){        
+        FIO    =   myName;
         ID  =   IDi;
         position    =   "Student";
         password    =   pass;

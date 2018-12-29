@@ -35,8 +35,6 @@ public class JFrameAddGroup extends javax.swing.JFrame {
         jTextDis = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jButtonAddGrou.setText("жмяк");
 
         jLabel1.setText("Преподаватель");

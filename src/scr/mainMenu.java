@@ -31,11 +31,13 @@ public  class mainMenu {
     String  addresLogIn  =   "E:\\scrLogIn.ser";
     String  addresDataBaseLecturer  =   "E:\\scrLec.ser";
     String  addresDataBaseStudent  =   "E:\\scrStud.ser";
-    String  addresDataBaseRat  =   "E:\\scrRat.ser";
+    String  addresDataBaseRat  =   "E:\\scrRat.ser";    
     public  static void go  ()
     {
         mainMenu   f = new mainMenu();
         f.ccc();
+        
+        
     }
     public  void    ccc(){       
         System.out.println("приветстую тебя избранный");
@@ -43,8 +45,12 @@ public  class mainMenu {
         JFrameMenu.jButtonNewLecturer.addActionListener(new  LabelListenerLecturer());
         JFrameMenu.jButtonNewStudent.addActionListener(new  LabelListenerStudent());
         JFrameMenu.jButtonAddGroup.addActionListener(new  LabelListenerGroup());
-        
+        downloadLect();
+        downloadStud();
+                downloadAuten();
+                        downloadRat();
         menuFrame.setVisible(true); 
+        System.out.println("приветстую тебя избранный");
     }
     class   LabelListener   implements  ActionListener{
         @Override
@@ -103,11 +109,12 @@ public  class mainMenu {
     public  void    newLecturer(){
         downloadLect();   
         downloadAuten();
-        lecturer    licturObject    =   new lecturer(NewLecturer.jTextFieldName.getText(),NewLecturer.jTextFieldSurname.getText(),NewLecturer.jTextFieldPatronymic.getText(),
-        String.valueOf(lect.size()),NewLecturer.jTextFieldPass.getText());        
+        ArrayList<String>    list   =   new ArrayList<String>();
+        ArrayList<String>    list1   =   new ArrayList<String>();
+        lecturer    licturObject    =   new lecturer(NewLecturer.jTextFieldName.getText(),NewLecturer.jTextFieldID.getText(),NewLecturer.jTextFieldPass.getText(),list,list1);        
         lect.add(licturObject);
         saveLect();
-        logIn   licturObjectLog =   new logIn(String.valueOf(lect.size()),NewLecturer.jTextFieldPass.getText(),"lecturer");
+        logIn   licturObjectLog =   new logIn(NewLecturer.jTextFieldID.getText(),NewLecturer.jTextFieldPass.getText(),"lecturer");
         manLog.add(licturObjectLog);
         saveLog();
         NewLecturer.setVisible(false);
@@ -136,10 +143,10 @@ public  class mainMenu {
         downloadAuten();
         downloadRat();
         ArrayList<String>   gro =   new ArrayList<String>();
-        student studentObject   =   new student(NewStudent.jTextStudentName.getText(),NewStudent.jTextStudentSubname.getText(),NewStudent.jTextStudentPatronymic.getText(),
-        String.valueOf(stud.size()),NewStudent.jTextStudentPassword.getText(),NewStudent.jTextStudentGroup.getText());
+        String  id  =   NewStudent.jTextStudentID.getText();
+        student studentObject   =   new student(NewStudent.jTextStudentName.getText(),id,NewStudent.jTextStudentPassword.getText(),NewStudent.jTextStudentGroup.getText());
         stud.add(studentObject);        
-        logIn   studentObjectLog =   new logIn(String.valueOf(stud.size()),NewStudent.jTextStudentPassword.getText(),"Student");
+        logIn   studentObjectLog =   new logIn(id,NewStudent.jTextStudentPassword.getText(),"Student");
         manLog.add(studentObjectLog);        
         //добавление рейтинга новому студенту
         List result = stud.stream()
@@ -151,8 +158,11 @@ public  class mainMenu {
         .collect(Collectors.toList());
         for(int i=0;i<res.size();i++){
             //перебор рейтингов и создание аналогов для нового студента
-            ratings raOb    =   (ratings)   result.get(i);
-            ratings ra  =   new ratings(String.valueOf(stud.size()),raOb.lect,raOb.discp,raOb.group);
+            System.out.println("ne ugadal");
+            ratings raOb    =   (ratings)   res.get(i);
+            System.out.println("ne ugadal");
+            ratings ra  =   new ratings(id,raOb.lect,raOb.discp,raOb.group);
+            System.out.println("ne ugadal");
             rat.add(ra);
         }
         saveLog();
@@ -170,9 +180,19 @@ public  class mainMenu {
         lecturer    lecturerObject  =   new lecturer();
         String  grup   =   AddGroup.jTextFieldGroup.getText();
         String  dis   =   AddGroup.jTextDis.getText();
-        lecturerObject  =   (lecturer)   lect.get(Integer.parseInt(AddGroup.jTextFieldLecturer.getText()));
-        lecturerObject.listGroups.add(grup);
-        lect.set(Integer.parseInt(AddGroup.jTextFieldLecturer.getText()), lecturerObject);
+        List re = lect.stream()
+        .filter(a -> Objects.equals(a.ID, AddGroup.jTextFieldLecturer.getText()))
+        .collect(Collectors.toList());
+        System.out.println("ne ugadal");
+        lecturerObject  =   (lecturer)   re.get(0);
+        System.out.println("ne ugadal");
+       // lecturerObject.listGroups.add(grup);
+       lecturerObject.listGroups.add(grup);
+       lecturerObject.listDiscp.add(dis);
+        System.out.println("ne ugadal");
+        int z   =   lect.indexOf(lecturerObject);
+        System.out.println("ne ugadal");
+        lect.set(z, lecturerObject);
         saveLect();
         //
         //добавление рейтинга

@@ -30,22 +30,16 @@ public class JFrameNewLecturer extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextFieldName = new javax.swing.JTextField();
-        jTextFieldSurname = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextFieldPatronymic = new javax.swing.JTextField();
+        jTextFieldID = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jTextFieldPass = new javax.swing.JTextField();
         jButtonAddNewLecturer = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(300, 300));
         setResizable(false);
 
         jLabel1.setText("Имя");
 
-        jLabel2.setText("Фамилия");
-
-        jLabel3.setText("Отчество");
+        jLabel2.setText("ID");
 
         jLabel4.setText("Пароль");
 
@@ -60,17 +54,15 @@ public class JFrameNewLecturer extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel3)
                     .addComponent(jLabel4))
-                .addGap(18, 18, 18)
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonAddNewLecturer)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jTextFieldPatronymic)
-                        .addComponent(jTextFieldSurname, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextFieldID, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jTextFieldName, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jTextFieldPass, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -82,12 +74,8 @@ public class JFrameNewLecturer extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextFieldSurname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextFieldPatronymic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jTextFieldPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -138,11 +126,9 @@ public class JFrameNewLecturer extends javax.swing.JFrame {
     public static javax.swing.JButton jButtonAddNewLecturer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    public static javax.swing.JTextField jTextFieldID;
     public static javax.swing.JTextField jTextFieldName;
     public static javax.swing.JTextField jTextFieldPass;
-    public static javax.swing.JTextField jTextFieldPatronymic;
-    public static javax.swing.JTextField jTextFieldSurname;
     // End of variables declaration//GEN-END:variables
 }
