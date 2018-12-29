@@ -10,7 +10,6 @@ package scr;
  * @author Goblin
  */
 public class JFrameStudent extends javax.swing.JFrame {
-    
     /**
      * Creates new form JFrameStudent
      */
@@ -44,9 +43,12 @@ public class JFrameStudent extends javax.swing.JFrame {
 
         jLabel4.setText("0");
 
-        JCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jButtonVisiblRat.setText("jButton1");
+        jButtonVisiblRat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonVisiblRatMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -88,6 +90,11 @@ public class JFrameStudent extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonVisiblRatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonVisiblRatMouseClicked
+        // TODO add your handling code here:
+        outputRat();
+    }//GEN-LAST:event_jButtonVisiblRatMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -112,12 +119,12 @@ public class JFrameStudent extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(JFrameStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(JFrameStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+        }     
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+            public void run() {                
                 new JFrameStudent().setVisible(true);
             }
         });
@@ -131,4 +138,12 @@ public class JFrameStudent extends javax.swing.JFrame {
     public static javax.swing.JLabel jLabel3;
     public static javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
+public  void    addGroupInComboBox  (String text){
+    JCombo.addItem(text);
+}
+//int    pract,int   lect    ,int    point
+public  void    outputRat   (){
+    String  s   =   (String)   JCombo.getSelectedItem();
+    menuStudent.outRa(s);
+}
 }

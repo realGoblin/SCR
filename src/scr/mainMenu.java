@@ -11,7 +11,6 @@ import  java.util.ArrayList;
 import  java.util.Objects;
 import java.util.List;
 import java.util.stream.Collectors;
-import  java.io.*;
 
 /**
  *
@@ -27,17 +26,11 @@ public  class mainMenu {
     JFrameNewLecturer   NewLecturer =   new JFrameNewLecturer();
     JFrameNewStudent  NewStudent   =   new    JFrameNewStudent();
     JFrameAddGroup  AddGroup   =   new    JFrameAddGroup();
-    newPassword newpas  =   new newPassword();
-    String  addresLogIn  =   "E:\\scrLogIn.ser";
-    String  addresDataBaseLecturer  =   "E:\\scrLec.ser";
-    String  addresDataBaseStudent  =   "E:\\scrStud.ser";
-    String  addresDataBaseRat  =   "E:\\scrRat.ser";    
+    newPassword newpas  =   new newPassword(); 
     public  static void go  ()
     {
         mainMenu   f = new mainMenu();
-        f.ccc();
-        
-        
+        f.ccc(); 
     }
     public  void    ccc(){       
         System.out.println("приветстую тебя избранный");
@@ -45,10 +38,10 @@ public  class mainMenu {
         JFrameMenu.jButtonNewLecturer.addActionListener(new  LabelListenerLecturer());
         JFrameMenu.jButtonNewStudent.addActionListener(new  LabelListenerStudent());
         JFrameMenu.jButtonAddGroup.addActionListener(new  LabelListenerGroup());
-        downloadLect();
-        downloadStud();
-                downloadAuten();
-                        downloadRat();
+        downloadAndSave.downloadL();
+        downloadAndSave.downloadS();
+        downloadAndSave.downloadA();
+        downloadAndSave.downloadR();
         menuFrame.setVisible(true); 
         System.out.println("приветстую тебя избранный");
     }
@@ -107,27 +100,27 @@ public  class mainMenu {
             }            
     }
     public  void    newLecturer(){
-        downloadLect();   
-        downloadAuten();
+        downloadAndSave.downloadL();   
+        downloadAndSave.downloadA();
         ArrayList<String>    list   =   new ArrayList<String>();
         ArrayList<String>    list1   =   new ArrayList<String>();
         lecturer    licturObject    =   new lecturer(NewLecturer.jTextFieldName.getText(),NewLecturer.jTextFieldID.getText(),NewLecturer.jTextFieldPass.getText(),list,list1);        
         lect.add(licturObject);
-        saveLect();
+        downloadAndSave.saveL();
         logIn   licturObjectLog =   new logIn(NewLecturer.jTextFieldID.getText(),NewLecturer.jTextFieldPass.getText(),"lecturer");
         manLog.add(licturObjectLog);
-        saveLog();
+        downloadAndSave.saveLogs();
         NewLecturer.setVisible(false);
     }
     public  void    newPass(){
-                downloadAuten();
+                downloadAndSave.downloadA();
                 logIn    adminOb = (logIn) manLog.get(0);
                 if(Objects.equals(newPassword.oldPass.getText(),adminObject.password)){
                     if(Objects.equals(newPassword.newPass.getText(),newPassword.newPass2.getText())){
                         adminObject.password    =   newPassword.newPass.getText();
                         adminOb.password    =   newPassword.newPass.getText();                        
                         manLog.set(0,adminOb);
-                        saveLog();                        
+                        downloadAndSave.saveLogs();                        
                         newpas.setVisible(false);
                     }else{
                         //raznii paroli
@@ -139,9 +132,9 @@ public  class mainMenu {
                 }
                   } 
     public  void    newStudent(){
-        downloadStud(); 
-        downloadAuten();
-        downloadRat();
+        downloadAndSave.downloadS(); 
+        downloadAndSave.downloadA();
+        downloadAndSave.downloadR();
         ArrayList<String>   gro =   new ArrayList<String>();
         String  id  =   NewStudent.jTextStudentID.getText();
         student studentObject   =   new student(NewStudent.jTextStudentName.getText(),id,NewStudent.jTextStudentPassword.getText(),NewStudent.jTextStudentGroup.getText());
@@ -165,18 +158,18 @@ public  class mainMenu {
             System.out.println("ne ugadal");
             rat.add(ra);
         }
-        saveLog();
-        saveStud();
-        saveRate();
+        downloadAndSave.saveLogs();
+        downloadAndSave.saveS();
+        downloadAndSave.saveR();
         //
         NewStudent.setVisible(false);
     }
     public  void    addGroup(){
         //
         ArrayList<String>   gro =   new ArrayList<String>(); 
-        downloadLect();
-        downloadRat();
-        downloadStud();
+        downloadAndSave.downloadS(); 
+        downloadAndSave.downloadR();
+        downloadAndSave.downloadL();
         lecturer    lecturerObject  =   new lecturer();
         String  grup   =   AddGroup.jTextFieldGroup.getText();
         String  dis   =   AddGroup.jTextDis.getText();
@@ -193,7 +186,7 @@ public  class mainMenu {
         int z   =   lect.indexOf(lecturerObject);
         System.out.println("ne ugadal");
         lect.set(z, lecturerObject);
-        saveLect();
+        downloadAndSave.saveL();
         //
         //добавление рейтинга
         // 
@@ -208,74 +201,6 @@ public  class mainMenu {
             ratings ra  =   new ratings(studentObject.ID,lecturerObject.ID,dis,studentObject.myGroup);
             rat.add(ra);
         }
-        saveRate();        
-    }
-    public  void    downloadLect(){
-        try{
-        ObjectInputStream   iM  =   new ObjectInputStream(new   FileInputStream(addresDataBaseLecturer)); 
-        lect    =   (ArrayList<lecturer>)   iM.readObject();  
-        }catch(Exception ex){
-        System.out.println(ex.getMessage());
-        }
-    }
-    public  void    downloadStud(){
-        try{ 
-        ObjectInputStream   iM  =   new ObjectInputStream(new   FileInputStream(addresDataBaseStudent)); 
-        stud    =   (ArrayList<student>)   iM.readObject();  
-        }catch(Exception ex){
-        System.out.println(ex.getMessage());
-        }
-    }
-    public  void    downloadAuten(){
-        try{
-        ObjectInputStream   is  =   new ObjectInputStream(new   FileInputStream(addresLogIn)); 
-        manLog    =   (ArrayList<logIn>)   is.readObject();           
-        }catch(Exception ex){
-        System.out.println(ex.getMessage());
-        }
-    }
-    public  void    downloadRat(){
-        try{
-        ObjectInputStream   iR  =   new ObjectInputStream(new   FileInputStream(addresDataBaseRat)); 
-        rat    =   (ArrayList<ratings>)   iR.readObject();  
-        }catch(Exception ex){
-        System.out.println(ex.getMessage());
-        }
-    }
-    public  void    saveLect(){
-        try{
-            ObjectOutputStream  o = new ObjectOutputStream(new  FileOutputStream(addresDataBaseLecturer));
-            o.writeObject(lect);
-            o.close();
-        }catch(Exception ex1){
-            System.out.println(ex1.getMessage());
-        }
-    }
-    public  void    saveStud(){
-        try{
-            ObjectOutputStream  o = new ObjectOutputStream(new  FileOutputStream(addresDataBaseStudent));
-            o.writeObject(stud);
-            o.close();
-        }catch(Exception ex1){
-            System.out.println(ex1.getMessage());
-        }
-    }
-    public  void    saveRate(){
-        try{
-            ObjectOutputStream  o = new ObjectOutputStream(new  FileOutputStream(addresDataBaseRat));
-            o.writeObject(rat);
-            o.close();
-        }catch(Exception ex1){
-            System.out.println(ex1.getMessage());
-        }
-    }    
-    public  void    saveLog(){
-        try{
-            ObjectOutputStream  oL = new ObjectOutputStream(new  FileOutputStream(addresLogIn));
-            oL.writeObject(manLog);
-            oL.close();
-            }catch(Exception ex1){
-                System.out.println(ex1.getMessage());
-            }
+        downloadAndSave.saveR();        
     }
 }

@@ -6,7 +6,6 @@
 package scr;
 //import  javax.swing.*;
 import  java.awt.event.*;
-import  java.io.*;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.List;
@@ -19,25 +18,13 @@ import java.util.Objects;
 public class SCR {
     
     ArrayList<logIn> manLog;
-    String  addresLogIn  =   "E:\\scrLogIn.ser";
-    String  addresDataBaseLecturer  =   "E:\\scrLec.ser";
-    String  addresDataBaseStudent  =   "E:\\scrStud.ser";
-    String  addresDataBaseRat  =   "E:\\scrRat.ser";    
     NewJFrame   logInFrame  =   new NewJFrame();
     public static void main(String[] args) {
         SCR gui =   new SCR();   
         gui.go();  
     }
     public void go(){                  
-                try{
-                    //Загнружаем базу
-                    ObjectInputStream   is  =   new ObjectInputStream(new   FileInputStream(addresLogIn)); 
-                    manLog    =   (ArrayList<logIn>)   is.readObject();            
-                }catch(Exception ex){
-                    firstStart();
-                    System.out.println(ex.getMessage());
-                    //ex.printStackTrace();
-                }
+            downloadAndSave.downloadA();
             logInFrame.setVisible(true);
             NewJFrame.jButtonLogIn.addActionListener(new  LabelListener());    
         }
@@ -50,32 +37,17 @@ public class SCR {
                     logIn   adLog    =   new logIn("ADMIN","ADMIN","ADMIN");
                     manLog.add(adLog);
                     //man.add(ad);
-                    try{                        
-                        ObjectOutputStream  os = new ObjectOutputStream(new  FileOutputStream(addresLogIn));
-                        os.writeObject(manLog);
-                        os.close();
-                        ObjectOutputStream  oM = new ObjectOutputStream(new  FileOutputStream(addresDataBaseLecturer));
-                        oM.writeObject(lec);
-                        oM.close();
-                        ObjectOutputStream  oR = new ObjectOutputStream(new  FileOutputStream(addresDataBaseRat));
-                        oR.writeObject(rat);
-                        oR.close();
-                        ObjectOutputStream  oS = new ObjectOutputStream(new  FileOutputStream(addresDataBaseStudent));
-                        oS.writeObject(stud);
-                        oS.close();
-                        } catch (Exception ex1) {
-                            System.out.println(ex1.getMessage());
-                            //ex1.printStackTrace();
-                        }
+                    downloadAndSave.saveLogs();
+                    downloadAndSave.saveL();
+                    downloadAndSave.saveR();
+                    downloadAndSave.saveS();
     }
     class   LabelListener   implements  ActionListener{
             @Override
             public  void actionPerformed(ActionEvent    event){
                 //авторизация
-                String  login   =  NewJFrame.jTextFieldLogin.getText();
-                //String  login   =   "ADMIN";
-                String  pass   =  NewJFrame.jTextFieldPass.getText();
-                //String  pass =   "AD";
+                String  login   =  NewJFrame.jTextFieldLogin.getText();                
+                String  pass   =  NewJFrame.jTextFieldPass.getText();                
                 //поиск по ИД
                 List result = manLog.stream()
                 .filter(a -> Objects.equals(a.ID, login))
@@ -107,21 +79,7 @@ public class SCR {
                     }
                 }                
         }
-    }    
+    }  
 }        
-
-
-    
-//    public void save(ArrayList<classMan> mane){
-//        try{                        
-//                        ObjectOutputStream  os = new ObjectOutputStream(new  FileOutputStream(addres));
-//                        os.writeObject(mane);
-//                        os.close();
-//                        } catch (Exception ex1) {
-//                            System.out.println(ex1.getMessage());
-//                            ex1.printStackTrace();
-//                        }
-//    }
-    
     
 

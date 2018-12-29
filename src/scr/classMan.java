@@ -28,8 +28,6 @@ class   admin  extends classMan{
 class   lecturer    extends classMan{
     ArrayList<String>    listGroups;
     ArrayList<String>    listDiscp;
-//    String  listGroups;
-//    String  listDiscp;
     public  lecturer(){
         
     }
@@ -44,7 +42,6 @@ class   lecturer    extends classMan{
 }
 class   student extends classMan{
     String   myGroup;
-    //ArrayList<ratings>  rat;
     public  student(){
     }
     public  student(String  myName, String  IDi,    String  pass,   String   groupMy){        
@@ -55,15 +52,10 @@ class   student extends classMan{
         myGroup =   groupMy;   
     }   
 }
-//class   group   implements  Serializable{
-//String  name;
-//ArrayList<lecturer> lect;
-//ArrayList<student>   stud;
-//}
 class   ratings implements  Serializable{
     int   practic;
     int   lectures;
-    int     gradPointAverage;
+    int   gradPointAverage;
     String  stud;
     String  lect;
     String  group;
