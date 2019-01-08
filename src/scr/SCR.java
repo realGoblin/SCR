@@ -73,6 +73,7 @@ public class SCR {
                         // а суда остальных lecturer
                         System.out.println("lecturer"); 
                         logInFrame.setVisible(false);
+                        menuLecturer.go(res.ID);
                         }
                     }else{
                     System.out.println("пшел вон");
