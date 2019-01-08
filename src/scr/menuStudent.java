@@ -14,7 +14,7 @@ public  class   menuStudent{
         ff.start(i);
     }
     public  void    start(String   idStudent){
-        downloadAndSave.downloadR();
+        rat =   downloadAndSave.downloadR();
         
         result = rat.stream()
         .filter(a -> Objects.equals(a.stud, idStudent))

@@ -100,27 +100,27 @@ public  class mainMenu {
             }            
     }
     public  void    newLecturer(){
-        downloadAndSave.downloadL();   
-        downloadAndSave.downloadA();
+        lect    =   downloadAndSave.downloadL();   
+        manLog  =   downloadAndSave.downloadA();
         ArrayList<String>    list   =   new ArrayList<String>();
         ArrayList<String>    list1   =   new ArrayList<String>();
         lecturer    licturObject    =   new lecturer(NewLecturer.jTextFieldName.getText(),NewLecturer.jTextFieldID.getText(),NewLecturer.jTextFieldPass.getText(),list,list1);        
         lect.add(licturObject);
-        downloadAndSave.saveL();
+        downloadAndSave.saveL(lect);
         logIn   licturObjectLog =   new logIn(NewLecturer.jTextFieldID.getText(),NewLecturer.jTextFieldPass.getText(),"lecturer");
         manLog.add(licturObjectLog);
-        downloadAndSave.saveLogs();
+        downloadAndSave.saveLogs(manLog);
         NewLecturer.setVisible(false);
     }
     public  void    newPass(){
-                downloadAndSave.downloadA();
+                manLog  =   downloadAndSave.downloadA();
                 logIn    adminOb = (logIn) manLog.get(0);
                 if(Objects.equals(newPassword.oldPass.getText(),adminObject.password)){
                     if(Objects.equals(newPassword.newPass.getText(),newPassword.newPass2.getText())){
                         adminObject.password    =   newPassword.newPass.getText();
                         adminOb.password    =   newPassword.newPass.getText();                        
                         manLog.set(0,adminOb);
-                        downloadAndSave.saveLogs();                        
+                        downloadAndSave.saveLogs(manLog);                        
                         newpas.setVisible(false);
                     }else{
                         //raznii paroli
@@ -132,9 +132,9 @@ public  class mainMenu {
                 }
                   } 
     public  void    newStudent(){
-        downloadAndSave.downloadS(); 
-        downloadAndSave.downloadA();
-        downloadAndSave.downloadR();
+        stud    =   downloadAndSave.downloadS(); 
+        manLog  =   downloadAndSave.downloadA();
+        rat =   downloadAndSave.downloadR();
         ArrayList<String>   gro =   new ArrayList<String>();
         String  id  =   NewStudent.jTextStudentID.getText();
         student studentObject   =   new student(NewStudent.jTextStudentName.getText(),id,NewStudent.jTextStudentPassword.getText(),NewStudent.jTextStudentGroup.getText());
@@ -158,18 +158,18 @@ public  class mainMenu {
             System.out.println("ne ugadal");
             rat.add(ra);
         }
-        downloadAndSave.saveLogs();
-        downloadAndSave.saveS();
-        downloadAndSave.saveR();
+        downloadAndSave.saveLogs(manLog);
+        downloadAndSave.saveS(stud);
+        downloadAndSave.saveR(rat);
         //
         NewStudent.setVisible(false);
     }
     public  void    addGroup(){
         //
         ArrayList<String>   gro =   new ArrayList<String>(); 
-        downloadAndSave.downloadS(); 
-        downloadAndSave.downloadR();
-        downloadAndSave.downloadL();
+        stud    =   downloadAndSave.downloadS(); 
+        rat =   downloadAndSave.downloadR();
+        lect    =   downloadAndSave.downloadL();
         lecturer    lecturerObject  =   new lecturer();
         String  grup   =   AddGroup.jTextFieldGroup.getText();
         String  dis   =   AddGroup.jTextDis.getText();
@@ -186,7 +186,7 @@ public  class mainMenu {
         int z   =   lect.indexOf(lecturerObject);
         System.out.println("ne ugadal");
         lect.set(z, lecturerObject);
-        downloadAndSave.saveL();
+        downloadAndSave.saveL(lect);
         //
         //добавление рейтинга
         // 
@@ -201,6 +201,6 @@ public  class mainMenu {
             ratings ra  =   new ratings(studentObject.ID,lecturerObject.ID,dis,studentObject.myGroup);
             rat.add(ra);
         }
-        downloadAndSave.saveR();        
+        downloadAndSave.saveR(rat);        
     }
 }

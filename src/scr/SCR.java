@@ -24,7 +24,7 @@ public class SCR {
         gui.go();  
     }
     public void go(){                  
-            downloadAndSave.downloadA();
+            manLog  =   downloadAndSave.downloadA();
             logInFrame.setVisible(true);
             NewJFrame.jButtonLogIn.addActionListener(new  LabelListener());    
         }
@@ -37,10 +37,10 @@ public class SCR {
                     logIn   adLog    =   new logIn("ADMIN","ADMIN","ADMIN");
                     manLog.add(adLog);
                     //man.add(ad);
-                    downloadAndSave.saveLogs();
-                    downloadAndSave.saveL();
-                    downloadAndSave.saveR();
-                    downloadAndSave.saveS();
+                    downloadAndSave.saveLogs(manLog);
+                    downloadAndSave.saveL(lec);
+                    downloadAndSave.saveR(rat);
+                    downloadAndSave.saveS(stud);
     }
     class   LabelListener   implements  ActionListener{
             @Override

@@ -20,71 +20,75 @@ public   class downloadAndSave {
     String  addresDataBaseLecturer  =   "E:\\scrLec.ser";
     String  addresDataBaseStudent  =   "E:\\scrStud.ser";
     String  addresDataBaseRat  =   "E:\\scrRat.ser";  
-    public  static  void    downloadL(){
+    public  static  ArrayList<lecturer>    downloadL(){
         downloadAndSave faf =   new downloadAndSave();
-        faf.downloadLect();
+        return  faf.downloadLect();
     }
-    public  static  void    downloadS(){
+    public  static  ArrayList<student>    downloadS(){
         downloadAndSave faf =   new downloadAndSave();
-        faf.downloadStud();
+        return  faf.downloadStud();
     }
-    public  static  void    downloadA(){
+    public  static  ArrayList<logIn>    downloadA(){
         downloadAndSave faf =   new downloadAndSave();
-        faf.downloadAuten();
+        return  faf.downloadAuten();        
     }
-    public  static  void    downloadR(){
+    public  static  ArrayList<ratings>    downloadR(){
         downloadAndSave faf =   new downloadAndSave();
-        faf.downloadRat();
+        return  faf.downloadRat();
     }
-    public  static  void    saveL(){
+    public  static  void    saveL(ArrayList<lecturer> lect){
         downloadAndSave faf =   new downloadAndSave();
-        faf.saveLect();
+        faf.saveLect(lect);
     }
-    public  static  void    saveS(){
+    public  static  void    saveS(ArrayList<student> stud){
         downloadAndSave faf =   new downloadAndSave();
-        faf.saveStud();
+        faf.saveStud(stud);
     }
-    public  static  void    saveR(){
+    public  static  void    saveR(ArrayList<ratings> rat){
         downloadAndSave faf =   new downloadAndSave();
-        faf.saveRate();
+        faf.saveRate(rat);
     }
-    public  static  void    saveLogs(){
+    public  static  void    saveLogs(ArrayList<logIn>  manLog){
         downloadAndSave faf =   new downloadAndSave();
-        faf.saveLog();
+        faf.saveLog(manLog);
     }
-    public  void    downloadLect(){
+    public  ArrayList<lecturer>    downloadLect(){
         try{
         ObjectInputStream   iM  =   new ObjectInputStream(new   FileInputStream(addresDataBaseLecturer)); 
         lect    =   (ArrayList<lecturer>)   iM.readObject();  
         }catch(Exception ex){
         System.out.println(ex.getMessage());
         }
+        return  lect;
     }
-    public  void    downloadStud(){
+    public  ArrayList<student>    downloadStud(){
         try{ 
         ObjectInputStream   iM  =   new ObjectInputStream(new   FileInputStream(addresDataBaseStudent)); 
         stud    =   (ArrayList<student>)   iM.readObject();  
         }catch(Exception ex){
         System.out.println(ex.getMessage());
         }
+        return  stud;
     }
-    public  void    downloadAuten(){
+    public  ArrayList<logIn>    downloadAuten(){
         try{
         ObjectInputStream   is  =   new ObjectInputStream(new   FileInputStream(addresLogIn)); 
         manLog    =   (ArrayList<logIn>)   is.readObject();           
         }catch(Exception ex){
         System.out.println(ex.getMessage());
         }
+        return manLog;
     }
-    public  void    downloadRat(){
+    public  ArrayList<ratings>    downloadRat(){
         try{
         ObjectInputStream   iR  =   new ObjectInputStream(new   FileInputStream(addresDataBaseRat)); 
         rat    =   (ArrayList<ratings>)   iR.readObject();  
         }catch(Exception ex){
         System.out.println(ex.getMessage());
         }
+        return  rat;
     }
-    public  void    saveLect(){
+    public  void    saveLect(ArrayList<lecturer> lect){
         try{
             ObjectOutputStream  o = new ObjectOutputStream(new  FileOutputStream(addresDataBaseLecturer));
             o.writeObject(lect);
@@ -93,7 +97,7 @@ public   class downloadAndSave {
             System.out.println(ex1.getMessage());
         }
     }
-    public  void    saveStud(){
+    public  void    saveStud(ArrayList<student> stud){
         try{
             ObjectOutputStream  o = new ObjectOutputStream(new  FileOutputStream(addresDataBaseStudent));
             o.writeObject(stud);
@@ -102,7 +106,7 @@ public   class downloadAndSave {
             System.out.println(ex1.getMessage());
         }
     }
-    public  void    saveRate(){
+    public  void    saveRate(ArrayList<ratings> rat){
         try{
             ObjectOutputStream  o = new ObjectOutputStream(new  FileOutputStream(addresDataBaseRat));
             o.writeObject(rat);
@@ -111,7 +115,7 @@ public   class downloadAndSave {
             System.out.println(ex1.getMessage());
         }
     }    
-    public  void    saveLog(){
+    public  void    saveLog(ArrayList<logIn>  manLog){
         try{
             ObjectOutputStream  oL = new ObjectOutputStream(new  FileOutputStream(addresLogIn));
             oL.writeObject(manLog);
