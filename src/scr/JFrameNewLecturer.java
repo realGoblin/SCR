@@ -35,6 +35,7 @@ public class JFrameNewLecturer extends javax.swing.JFrame {
         jTextFieldPass = new javax.swing.JTextField();
         jButtonAddNewLecturer = new javax.swing.JButton();
 
+        setTitle("SCR");
         setResizable(false);
 
         jLabel1.setText("Имя");

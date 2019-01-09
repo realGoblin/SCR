@@ -34,6 +34,7 @@ public class JFrameStudent extends javax.swing.JFrame {
         jButtonVisiblRat = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("SCR");
 
         jLabel1.setText("disc");
 

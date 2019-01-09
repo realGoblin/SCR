@@ -75,6 +75,8 @@ public   class downloadAndSave {
         ObjectInputStream   is  =   new ObjectInputStream(new   FileInputStream(addresLogIn)); 
         manLog    =   (ArrayList<logIn>)   is.readObject();           
         }catch(Exception ex){
+        SCR.first();
+        System.out.println("перезапусти программу");
         System.out.println(ex.getMessage());
         }
         return manLog;

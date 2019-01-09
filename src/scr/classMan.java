@@ -60,7 +60,8 @@ class   ratings implements  Serializable{
     String  lect;
     String  group;
     String  discp;
-    int w;
+    double wR1;
+    double wR2;
     public  ratings(){
         //deafult
     }
@@ -72,7 +73,8 @@ class   ratings implements  Serializable{
         lect    =   IdLect;
         discp   =   dis;
         group   =   grup;
-        w   =   0;
+        wR1   =   0.5;
+        wR2 =   0.5;
     }
 }
 class   logIn   implements  Serializable{

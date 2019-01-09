@@ -28,15 +28,17 @@ public class SCR {
             logInFrame.setVisible(true);
             NewJFrame.jButtonLogIn.addActionListener(new  LabelListener());    
         }
+    public static void first() {
+        SCR gu =   new SCR();   
+        gu.firstStart();  
+    }
     public  void firstStart(){
                     ArrayList<ratings> rat    =   new ArrayList<ratings>();
                     ArrayList<lecturer> lec    =   new ArrayList<lecturer>();
                     ArrayList<student> stud    =   new ArrayList<student>();
                     manLog =   new ArrayList<logIn>();    
-                    //admin   ad   =   new admin();
                     logIn   adLog    =   new logIn("ADMIN","ADMIN","ADMIN");
                     manLog.add(adLog);
-                    //man.add(ad);
                     downloadAndSave.saveLogs(manLog);
                     downloadAndSave.saveL(lec);
                     downloadAndSave.saveR(rat);

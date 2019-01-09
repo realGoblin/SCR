@@ -37,6 +37,7 @@ public class JFrameNewStudent extends javax.swing.JFrame {
         jTextStudentPassword = new javax.swing.JTextField();
         jTextStudentGroup = new javax.swing.JTextField();
 
+        setTitle("SCR");
         setResizable(false);
 
         jButtonAddNewStudent.setText("jButton1");

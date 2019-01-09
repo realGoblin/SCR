@@ -35,6 +35,8 @@ public class JFrameAddGroup extends javax.swing.JFrame {
         jTextDis = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
 
+        setTitle("SCR");
+
         jButtonAddGrou.setText("жмяк");
 
         jLabel1.setText("Преподаватель");

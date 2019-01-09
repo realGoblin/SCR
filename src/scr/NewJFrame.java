@@ -35,6 +35,8 @@ public class NewJFrame extends javax.swing.JFrame {
         jButtonLogIn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("SCR");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMaximumSize(new java.awt.Dimension(1000, 1000));
         setResizable(false);
 

@@ -33,6 +33,7 @@ public class JFrameMenu extends javax.swing.JFrame {
         jButtonAddGroup = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("SCR");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setLocation(getLocation());
 
