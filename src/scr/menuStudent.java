@@ -49,7 +49,7 @@ class   visibleRate   implements  ActionListener{
                 menuStud.jLabel2.setText(String.valueOf(rateOb.R1));
                 menuStud.jLabel3.setText(String.valueOf(rateOb.R2));
                 menuStud.jLabel4.setText(String.valueOf(rateOb.gradPointAverage));
-                menuStud.jLabel5.setText("Рэйтинг расчитывается по формуле R1*"+String.valueOf(rateOb.wR1)+"+R2*"+String.valueOf(rateOb.wR2));
+                menuStud.jLabel5.setText("Рэйтинг расчитывается по формуле R1*"+String.valueOf(rateOb.wR1)+"+R2*"+String.valueOf(rateOb.wR2)+"c округлением в меньшую сторону.");
             }                
         }
 }

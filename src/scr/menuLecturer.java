@@ -74,7 +74,7 @@ public class menuLecturer {
      class   calculateRate   implements  ActionListener{
             @Override
             public  void actionPerformed(ActionEvent    event){
-                menuLect.jTextField3.setText(String.valueOf(Integer.parseInt(menuLect.jTextField1.getText())+Integer.parseInt(menuLect.jTextField2.getText())));
+                menuLect.jTextField3.setText(String.valueOf((int)(Integer.parseInt(menuLect.jTextField1.getText())*Double.parseDouble(menuLect.jTextField4.getText())+Integer.parseInt(menuLect.jTextField2.getText())*Double.parseDouble(menuLect.jTextField5.getText()))));
             }                
         }
      class   safeRate   implements  ActionListener{
@@ -93,8 +93,8 @@ public class menuLecturer {
                 for(int i=0;i<re1.size();i++){
                     ratings rateOb  =   re1.get(i);
                     int iR  =   rat.indexOf(rateOb);
-                    rateOb.wR1=Integer.parseInt(menuLect.jTextField4.getText());
-                    rateOb.wR2=Integer.parseInt(menuLect.jTextField5.getText());
+                    rateOb.wR1=Double.parseDouble(menuLect.jTextField4.getText());
+                    rateOb.wR2=Double.parseDouble(menuLect.jTextField5.getText());
                     rat.set(iR,rateOb);
                 }
                  downloadAndSave.saveR(rat);

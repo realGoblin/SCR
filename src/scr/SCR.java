@@ -61,7 +61,6 @@ public class SCR {
                 res = (logIn)  result.get(0);                    
                 if(Objects.equals(pass,res.password)){
                     //залогинились
-                    //System.out.println("приветстую тебя");
                     if(Objects.equals(res.position, "ADMIN")){
                         //админов туда
                         logInFrame.setVisible(false);

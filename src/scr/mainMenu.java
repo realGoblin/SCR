@@ -37,10 +37,12 @@ public  class mainMenu {
         JFrameMenu.jButtonNewLecturer.addActionListener(new  LabelListenerLecturer());
         JFrameMenu.jButtonNewStudent.addActionListener(new  LabelListenerStudent());
         JFrameMenu.jButtonAddGroup.addActionListener(new  LabelListenerGroup());
-        downloadAndSave.downloadL();
-        downloadAndSave.downloadS();
-        downloadAndSave.downloadA();
-        downloadAndSave.downloadR();
+        lect    =   downloadAndSave.downloadL();
+        stud    =   downloadAndSave.downloadS();
+        manLog    =   downloadAndSave.downloadA();
+        rat =   downloadAndSave.downloadR();
+        System.out.println("ты кто такой");
+        System.out.println("ты кто такой");
         menuFrame.setVisible(true); 
     }
     class   LabelListener   implements  ActionListener{
@@ -140,9 +142,11 @@ public  class mainMenu {
         ArrayList<String>   gro =   new ArrayList<String>();
         String  id  =   NewStudent.jTextStudentID.getText();
         student studentObject   =   new student(NewStudent.jTextStudentName.getText(),id,NewStudent.jTextStudentPassword.getText(),NewStudent.jTextStudentGroup.getText());
-        stud.add(studentObject);        
+        stud.add(studentObject);     
+        downloadAndSave.saveS(stud);
         logIn   studentObjectLog =   new logIn(id,NewStudent.jTextStudentPassword.getText(),"Student");
-        manLog.add(studentObjectLog);        
+        manLog.add(studentObjectLog);         
+        downloadAndSave.saveLogs(manLog);
         //добавление рейтинга новому студенту
         List result = stud.stream()
         .filter(a -> Objects.equals(a.myGroup, NewStudent.jTextStudentGroup.getText()))
@@ -156,9 +160,7 @@ public  class mainMenu {
             ratings raOb    =   (ratings)   res.get(i);
             ratings ra  =   new ratings(studentObject.FIO,id,raOb.lect,raOb.discp,raOb.group);
             rat.add(ra);
-        }
-        downloadAndSave.saveLogs(manLog);
-        downloadAndSave.saveS(stud);
+        }        
         downloadAndSave.saveR(rat);
         //
         NewStudent.setVisible(false);
