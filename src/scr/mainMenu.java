@@ -74,7 +74,12 @@ public  class mainMenu {
     }
     class   LabelListenerStudent   implements  ActionListener{
         @Override
-        public  void    actionPerformed(ActionEvent    event){            
+        public  void    actionPerformed(ActionEvent    event){   
+            
+            NewStudent.jTextStudentName.setText("");
+            NewStudent.jTextStudentID.setText("");
+            NewStudent.jTextStudentPassword.setText("");
+            NewStudent.jTextStudentGroup.setText("");
             NewStudent.setVisible(true);
             NewStudent.jButtonAddNewStudent.addActionListener(new  LabelListenerAddStudent());            
         }    
@@ -154,7 +159,7 @@ public  class mainMenu {
             System.out.println("ne ugadal");
             ratings raOb    =   (ratings)   res.get(i);
             System.out.println("ne ugadal");
-            ratings ra  =   new ratings(id,raOb.lect,raOb.discp,raOb.group);
+            ratings ra  =   new ratings(studentObject.FIO,id,raOb.lect,raOb.discp,raOb.group);
             System.out.println("ne ugadal");
             rat.add(ra);
         }
@@ -198,7 +203,7 @@ public  class mainMenu {
         for(int i=0;i<result.size();i++){
             //перебор студентов и создание рэйтинга
             student studentObject   =   (student)   result.get(i);
-            ratings ra  =   new ratings(studentObject.ID,lecturerObject.ID,dis,studentObject.myGroup);
+            ratings ra  =   new ratings(studentObject.FIO,studentObject.ID,lecturerObject.ID,dis,studentObject.myGroup);
             rat.add(ra);
         }
         downloadAndSave.saveR(rat);        

@@ -53,9 +53,10 @@ class   student extends classMan{
     }   
 }
 class   ratings implements  Serializable{
-    int   practic;
-    int   lectures;
+    int   R1;
+    int   R2;
     int   gradPointAverage;
+    String  studName;
     String  stud;
     String  lect;
     String  group;
@@ -65,14 +66,15 @@ class   ratings implements  Serializable{
     public  ratings(){
         //deafult
     }
-    public  ratings(String id,String IdLect,String   dis,String grup){        
-        practic =   0;
-        lectures    =   0;
-        gradPointAverage    =   0;
+    public  ratings(String  Name,String id,String IdLect,String   dis,String grup){   
+        studName    =   Name;
         stud    =   id;
         lect    =   IdLect;
         discp   =   dis;
         group   =   grup;
+        R1 =   0;
+        R2    =   0;
+        gradPointAverage    =   0;
         wR1   =   0.5;
         wR2 =   0.5;
     }

@@ -140,7 +140,7 @@ public class JFrameStudent extends javax.swing.JFrame {
     public static javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 public  void    addGroupInComboBox  (String text){
-    JCombo.addItem(text);
+    //JCombo.addItem(text);
 }
 //int    pract,int   lect    ,int    point
 public  void    outputRat   (){

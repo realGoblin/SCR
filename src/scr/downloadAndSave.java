@@ -65,7 +65,7 @@ public   class downloadAndSave {
         try{ 
         ObjectInputStream   iM  =   new ObjectInputStream(new   FileInputStream(addresDataBaseStudent)); 
         stud    =   (ArrayList<student>)   iM.readObject();  
-        }catch(Exception ex){
+        }catch(IOException | ClassNotFoundException ex){
         System.out.println(ex.getMessage());
         }
         return  stud;
