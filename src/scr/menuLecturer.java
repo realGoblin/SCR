@@ -100,5 +100,4 @@ public class menuLecturer {
                  downloadAndSave.saveR(rat);
             }                
         }
-    } 
-     
+    }  

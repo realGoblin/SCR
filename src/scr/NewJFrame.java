@@ -52,7 +52,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jLabelPass.setText("pass");
 
-        jButtonLogIn.setText("жмяк");
+        jButtonLogIn.setText("Войти");
 
         javax.swing.GroupLayout jPanelLogInLayout = new javax.swing.GroupLayout(jPanelLogIn);
         jPanelLogIn.setLayout(jPanelLogInLayout);

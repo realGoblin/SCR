@@ -132,7 +132,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonLogIn">
           <Properties>
-            <Property name="text" type="java.lang.String" value="&#x436;&#x43c;&#x44f;&#x43a;"/>
+            <Property name="text" type="java.lang.String" value="&#x412;&#x43e;&#x439;&#x442;&#x438;"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>

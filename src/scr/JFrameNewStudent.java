@@ -40,7 +40,7 @@ public class JFrameNewStudent extends javax.swing.JFrame {
         setTitle("SCR");
         setResizable(false);
 
-        jButtonAddNewStudent.setText("jButton1");
+        jButtonAddNewStudent.setText("Добавить");
 
         jLabel1.setText("FIO");
 

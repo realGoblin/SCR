@@ -125,6 +125,5 @@ public   class downloadAndSave {
             }catch(Exception ex1){
                 System.out.println(ex1.getMessage());
             }
-    }
-    
+    }    
 }

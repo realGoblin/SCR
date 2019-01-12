@@ -55,7 +55,7 @@ public class JFrameLecturer extends javax.swing.JFrame {
 
         jLabel2.setText("Группы");
 
-        jButton1.setText("жмяк");
+        jButton1.setText("Выбрать");
 
         jLabel3.setText("Студент");
 
@@ -127,7 +127,7 @@ public class JFrameLecturer extends javax.swing.JFrame {
                                 .addComponent(jComboBoxGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1)))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

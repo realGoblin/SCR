@@ -33,7 +33,6 @@ public  class mainMenu {
         f.ccc(); 
     }
     public  void    ccc(){       
-        System.out.println("приветстую тебя избранный");
         JFrameMenu.jButtonNewPass.addActionListener(new  LabelListener());
         JFrameMenu.jButtonNewLecturer.addActionListener(new  LabelListenerLecturer());
         JFrameMenu.jButtonNewStudent.addActionListener(new  LabelListenerStudent());
@@ -43,7 +42,6 @@ public  class mainMenu {
         downloadAndSave.downloadA();
         downloadAndSave.downloadR();
         menuFrame.setVisible(true); 
-        System.out.println("приветстую тебя избранный");
     }
     class   LabelListener   implements  ActionListener{
         @Override
@@ -56,7 +54,6 @@ public  class mainMenu {
             @Override
             public  void actionPerformed(ActionEvent    event){
                 newPass();
-                System.out.println("приветстую тебя избранный");
             }            
     }
     class   LabelListenerLecturer   implements  ActionListener{
@@ -156,11 +153,8 @@ public  class mainMenu {
         .collect(Collectors.toList());
         for(int i=0;i<res.size();i++){
             //перебор рейтингов и создание аналогов для нового студента
-            System.out.println("ne ugadal");
             ratings raOb    =   (ratings)   res.get(i);
-            System.out.println("ne ugadal");
             ratings ra  =   new ratings(studentObject.FIO,id,raOb.lect,raOb.discp,raOb.group);
-            System.out.println("ne ugadal");
             rat.add(ra);
         }
         downloadAndSave.saveLogs(manLog);
@@ -181,15 +175,10 @@ public  class mainMenu {
         List re = lect.stream()
         .filter(a -> Objects.equals(a.ID, AddGroup.jTextFieldLecturer.getText()))
         .collect(Collectors.toList());
-        System.out.println("ne ugadal");
         lecturerObject  =   (lecturer)   re.get(0);
-        System.out.println("ne ugadal");
-       // lecturerObject.listGroups.add(grup);
        lecturerObject.listGroups.add(grup);
        lecturerObject.listDiscp.add(dis);
-        System.out.println("ne ugadal");
         int z   =   lect.indexOf(lecturerObject);
-        System.out.println("ne ugadal");
         lect.set(z, lecturerObject);
         downloadAndSave.saveL(lect);
         //

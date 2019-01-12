@@ -44,7 +44,7 @@ public class JFrameNewLecturer extends javax.swing.JFrame {
 
         jLabel4.setText("Пароль");
 
-        jButtonAddNewLecturer.setText("жмяк");
+        jButtonAddNewLecturer.setText("Добавить");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
